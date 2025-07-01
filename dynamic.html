@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Web Page - Simplified</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      padding: 30px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #00796b;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    button, input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004d40;
+    }
+    #greeting {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dynamic Web Page</h1>
+
+  <!-- User Greeting -->
+  <section>
+    <h2>User Greeting</h2>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button onclick="greet()">Greet</button>
+    <div id="greeting"></div>
+  </section>
+
+  <!-- Scroll to Top Button -->
+  <button onclick="scrollToTop()" id="scrollTopBtn">Top</button>
+
+  <script>
+    // Greeting
+    function greet() {
+      const name = document.getElementById("name").value;
+      document.getElementById("greeting").innerText = "Hello, " + name + "!";
+    }
+
+    // Scroll to Top functionality
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
